@@ -1,8 +1,13 @@
+import { pokemonApi } from './services/pokemonApi'
+
 const { configureStore } = require('@reduxjs/toolkit')
 
 const store = configureStore({
     reducer: {
-        userReducer:() => ({}),
+        [pokemonApi.reducerPath]: pokemonApi.reducer
+    },
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware().concat(pokemonApi.middleware)
     }
 })
 

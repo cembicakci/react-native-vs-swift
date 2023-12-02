@@ -1,17 +1,54 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StatusBar } from "expo-status-bar";
+import { FlatList, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { useGetPokemonsQuery } from "../app/services/pokemonApi";
 
-const HomeScreen = () => {
+const BASE_IMAGE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home";
+
+export default function HomeScreen() {
+    const { data: pokemons, isLoading, isError } = useGetPokemonsQuery();
+
+    if (isLoading) {
+        return <Text>Loading...</Text>;
+    }
+
+    if (isError) {
+        return <Text>Error...</Text>;
+    }
+
     return (
-        <View>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
-            <Text>HomeScreen</Text>
-        </View>
-    )
+        <SafeAreaView style={styles.container}>
+            <StatusBar style="auto" />
+            <FlatList
+                data={pokemons}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: 16,
+                        }}
+                    >
+                        <Image
+                            style={{ width: 64, height: 64 }}
+                            source={{ uri: `${BASE_IMAGE_URL}/${item.pokemonId}.png` }}
+                        />
+                        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+                            {item.name}
+                        </Text>
+                    </View>
+                )}
+            />
+        </SafeAreaView>
+    );
 }
 
-export default HomeScreen
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+});
