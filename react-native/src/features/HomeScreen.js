@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { FlatList, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Button, FlatList, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { useGetPokemonsQuery } from "../app/services/pokemonApi";
 
 const BASE_IMAGE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     const { data: pokemons, isLoading, isError } = useGetPokemonsQuery();
 
     if (isLoading) {
@@ -18,6 +18,10 @@ export default function HomeScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar style="auto" />
+            <Button
+                title='Click'
+                onPress={() => { navigation.navigate('Settings') }}
+            />
             <FlatList
                 data={pokemons}
                 keyExtractor={(item) => item.id.toString()}
