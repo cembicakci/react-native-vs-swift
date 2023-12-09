@@ -11,7 +11,23 @@ import SwiftUI
 struct pokedexApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "house.fill")
+                            Text("Home")
+                        }
+                    }
+                
+                SettingsView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "gear.circle.fill")
+                            Text("Settings")
+                        }
+                    }
+            }
         }
     }
 }

@@ -13,12 +13,12 @@ enum NavigationItem: Hashable {
 
 struct ContentView: View {
     @State var pokemons: [Pokemon] = []
-    @State var path: [NavigationItem] = []
+
     
     let decoder = JSONDecoder()
     
     var body: some View {
-        NavigationStack(path: $path) {
+        
             ZStack {
                 LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
@@ -40,22 +40,15 @@ struct ContentView: View {
                                 Spacer()
                             }
                             .background(Color.white)
-                            .onTapGesture {
-                                path.append(.detail)
-                            }
+                        
                         }
                     }
                 }
             }
             .task {
                 await fetchData()
-            }.navigationDestination(for: NavigationItem.self) { item in
-                switch item {
-                case .detail:
-                    SettingsView()
-                }
             }
-        }
+        
     }
     
     func fetchData() async {
