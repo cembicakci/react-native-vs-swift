@@ -16,15 +16,9 @@ final class APIClient {
     
     private init() { }
     
-    func send<T: Request>(_ request: T) async -> T.Response {
-        
-        do {
-            let (data, _) = try await session.data(for: request.asURLRequest)
-            return try decoder.decode(T.Response.self, from: data)
-        } catch {
-            fatalError()
-        }
-        
+    func send<T: Request>(_ request: T) async throws -> T.Response {
+        let (data, _) = try await session.data(for: request.asURLRequest)
+        return try decoder.decode(T.Response.self, from: data)
     }
     
 }

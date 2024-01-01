@@ -40,7 +40,7 @@ struct AddView: View {
                 )
                 
                 Task {
-                    _ = await APIClient.shared.send(request)
+                   //_ = await APIClient.shared.send(request)
                     dismiss()
                 }
                 

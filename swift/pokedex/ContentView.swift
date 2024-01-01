@@ -73,7 +73,7 @@ struct ContentView: View {
     
     func fetchData() async {
         let request = PokemonRequests()
-        self.pokemons = await APIClient.shared.send(request)
+        //self.pokemons = await APIClient.shared.send(request)
         
     }
     

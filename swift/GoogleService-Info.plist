@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBAbnCBPLjpERv21z2XD2R_X0sYuxk8_IU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>94461306985</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cembicakci.pokedex</string>
+	<key>PROJECT_ID</key>
+	<string>pokedex-d3032</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pokedex-d3032.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:94461306985:ios:32c88fb60c6490d1b71af8</string>
+</dict>
+</plist>
