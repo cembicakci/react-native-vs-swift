@@ -7,20 +7,34 @@
 
 import Foundation
 
-struct Pokemon: Decodable, Identifiable {
-    let id: Int
+struct Pokemon: Codable, Identifiable {
+    let id: Int?
     let name: String
-    let pokemonId: Int
+    let pokemonId: Int?
 }
 
 typealias PokemonsResponse = [Pokemon]
 
 struct PokemonRequests: Request {
-    
     typealias Response = PokemonsResponse
     
-    var baseUrl: String = "https://my-json-server.typicode.com/ozcanzaferayan/pokedex"
+    var baseUrl: String = "https://pokedex-api-taupe-phi.vercel.app"
     var path: String = "/pokemons"
     var method: HTTPMethod = .GET
+    let body: Data? = nil
     
+}
+
+struct AddPokemonRequests: Request {
+    typealias Response = Pokemon
+    
+    var baseUrl: String = "https://pokedex-api-taupe-phi.vercel.app"
+    var path: String = "/pokemons"
+    var method: HTTPMethod = .POST
+    let body: Data?
+    
+    init(pokemon: Pokemon) {
+        body = try? JSONEncoder().encode(pokemon)
+    }
+        
 }

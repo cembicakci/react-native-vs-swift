@@ -14,7 +14,7 @@ protocol Request {
     var baseUrl: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
-    //var body
+    var body: Data? { get }
     //var header
     //var queryItems
     
@@ -22,13 +22,15 @@ protocol Request {
 
 enum HTTPMethod: String {
     case GET
+    case POST
 }
 
 extension Request {
     
     var asURLRequest: URLRequest {
         let url = URL(string: baseUrl + path)!
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpBody = body
         return request
     }
     

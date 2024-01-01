@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E594ED472B24692300A9E978 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E594ED462B24692300A9E978 /* SettingsView.swift */; };
+		E59938822B42DBE0001DDA88 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59938812B42DBE0001DDA88 /* AddView.swift */; };
 		E5FF843F2B1B2C52002FF56A /* pokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF843E2B1B2C52002FF56A /* pokedexApp.swift */; };
 		E5FF84412B1B2C52002FF56A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FF84402B1B2C52002FF56A /* ContentView.swift */; };
 		E5FF84432B1B2C54002FF56A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5FF84422B1B2C54002FF56A /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		E594ED462B24692300A9E978 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E59938812B42DBE0001DDA88 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		E5FF843B2B1B2C52002FF56A /* pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5FF843E2B1B2C52002FF56A /* pokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokedexApp.swift; sourceTree = "<group>"; };
 		E5FF84402B1B2C52002FF56A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				E5FF84422B1B2C54002FF56A /* Assets.xcassets */,
 				E5FF84442B1B2C54002FF56A /* Preview Content */,
 				E594ED462B24692300A9E978 /* SettingsView.swift */,
+				E59938812B42DBE0001DDA88 /* AddView.swift */,
 			);
 			path = pokedex;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59938822B42DBE0001DDA88 /* AddView.swift in Sources */,
 				E5FF84412B1B2C52002FF56A /* ContentView.swift in Sources */,
 				E5FF84502B1B3211002FF56A /* Request.swift in Sources */,
 				E5FF843F2B1B2C52002FF56A /* pokedexApp.swift in Sources */,

@@ -7,19 +7,20 @@
 
 import SwiftUI
 
-enum NavigationItem: Hashable {
-    case detail
+enum FullScreenItem: String, Identifiable {
+    var id: String { rawValue }
+    case add
 }
 
 struct ContentView: View {
     @State var pokemons: [Pokemon] = []
-
+    @State var fullScreenItem: FullScreenItem?
     
     let decoder = JSONDecoder()
     
     var body: some View {
         
-            ZStack {
+        ZStack(alignment: .bottomTrailing) {
                 LinearGradient(colors: [.pink, .purple], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 ScrollView {
@@ -44,9 +45,28 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding()
+                
+                Button {
+                    fullScreenItem = .add
+                } label: {
+                    Image(systemName: "plus")
+                        .padding(20)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .padding(20)
+                }
+            
             }
             .task {
                 await fetchData()
+            }
+            .sheet(item: $fullScreenItem) { item in
+                switch item {
+                case .add:
+                    AddView()
+                }
+              
             }
         
     }
