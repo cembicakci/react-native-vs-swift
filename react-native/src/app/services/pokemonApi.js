@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseUrl = "https://my-json-server.typicode.com/ozcanzaferayan/pokedex";
+const baseUrl = "https://pokedex-api-taupe-phi.vercel.app";
 
 export const pokemonApi = createApi({
     reducerPath: "pokemonApi",
