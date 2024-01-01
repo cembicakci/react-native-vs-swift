@@ -9,6 +9,7 @@ import { Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AddScreen from './src/features/AddScreen';
+import LoginScreen from './src/features/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator()
@@ -18,6 +19,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name='LoginScreen' component={LoginScreen} />
           <Stack.Screen name='HomeStack' options={{ headerShown: false }}>
             {() => (
               <Tab.Navigator>
