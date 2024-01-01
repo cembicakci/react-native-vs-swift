@@ -7,11 +7,21 @@ export const pokemonApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl,
     }),
+    tagTypes: ["Pokemon", "User"],
     endpoints: (builder) => ({
         getPokemons: builder.query({
             query: () => "/pokemons",
+            providesTags: ["Pokemon"]
+        }),
+        addPokemon: builder.mutation({
+            query: (body) => ({
+                url: "/pokemons",
+                method: "POST",
+                body,
+            }),
+            invalidatesTags: ["Pokemon"]
         }),
     }),
 });
 
-export const { useGetPokemonsQuery } = pokemonApi
+export const { useGetPokemonsQuery, useAddPokemonMutation } = pokemonApi
