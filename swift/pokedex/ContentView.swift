@@ -73,12 +73,17 @@ struct ContentView: View {
     
     func fetchData() async {
         let request = PokemonRequests()
-        //self.pokemons = await APIClient.shared.send(request)
         
+        do {
+            self.pokemons = try await APIClient.shared.send(request)
+        } catch {
+            print("Error fetching data: \(error)")
+        }
     }
     
     func imageUrl(for pokemon: Pokemon) -> URL {
-        URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.pokemonId).png")!
+        print(pokemon.pokemonId)
+        return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(pokemon.pokemonId).png")!
     }
 }
 

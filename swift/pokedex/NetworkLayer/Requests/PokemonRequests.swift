@@ -10,7 +10,7 @@ import Foundation
 struct Pokemon: Codable, Identifiable {
     let id: Int?
     let name: String
-    let pokemonId: Int?
+    let pokemonId: Int
 }
 
 typealias PokemonsResponse = [Pokemon]
